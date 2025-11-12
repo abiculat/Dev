@@ -1,0 +1,31 @@
+{
+  "name": "online-shop",
+  "description": "Full-stack MERN online shop application",
+  "repository": "https://github.com/abiculat/Dev",
+  "keywords": ["mern", "ecommerce", "mongodb", "react", "express"],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+    "MONGODB_URI": {
+      "description": "MongoDB connection string",
+      "value": "mongodb+srv://user:password@cluster.mongodb.net/online-shop"
+    },
+    "JWT_SECRET": {
+      "description": "JWT secret key for authentication",
+      "value": "your-secret-key-change-in-production"
+    },
+    "NODE_ENV": {
+      "description": "Node environment",
+      "value": "production"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "online-shop",
+  "version": "1.0.0",
+  "description": "Full-stack MERN online shop application",
+  "main": "server.js",
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "start:production": "npm run build:frontend && node server.js",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "build:frontend": "cd frontend && npm install && npm run build",
+    "seed": "cd backend && npm run seed",
+    "test": "cd frontend && npm test -- --watch=false",
+    "test:coverage": "cd frontend && npm test -- --coverage --watch=false"
+  },
+  "keywords": [
+    "mern",
+    "ecommerce",
+    "mongodb",
+    "react",
+    "express"
+  ],
+  "author": "Online Shop Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.0",
+    "express-validator": "^7.0.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "concurrently": "^8.2.1"
+  }
+}

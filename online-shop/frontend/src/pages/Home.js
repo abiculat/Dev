@@ -6,8 +6,7 @@ import {
   Card,
   CardBody,
   CardTitle,
-  Button,
-  Jumbotron
+  Button
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -16,7 +15,7 @@ const Home = () => {
     <>
       <div className="bg-primary text-white py-5 mb-5">
         <Container>
-          <Jumbotron className="bg-transparent text-center">
+          <div className="text-center py-5">
             <h1 className="display-4 mb-4">Welcome to Online Shop 🛒</h1>
             <p className="lead">
               Discover amazing products with exclusive discounts and fast shipping
@@ -26,7 +25,7 @@ const Home = () => {
                 Start Shopping
               </Button>
             </Link>
-          </Jumbotron>
+          </div>
         </Container>
       </div>
 
