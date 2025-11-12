@@ -79,6 +79,16 @@ online-shop/
 └── README.md
 ```
 
+## 🚀 Quick Deployment
+
+### Deploy Online (5 minutes)
+See **[RAILWAY-DEPLOY.md](RAILWAY-DEPLOY.md)** for easy Railway.app deployment
+
+### Other Hosting Options
+See **[DEPLOYMENT.md](DEPLOYMENT.md)** for Heroku, Vercel, AWS, Docker Hub
+
+---
+
 ## Installation & Setup
 
 ### Using Docker (Recommended)
