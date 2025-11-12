@@ -17,29 +17,23 @@ import { authService } from '../services/api';
 import { useNavigate } from 'react-router-dom';
 
 const Login = ({ onLogin }) => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
+  const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
+    if (!email) {
+      setError('Please enter your email');
+      return;
+    }
+
     try {
       setLoading(true);
-      const response = await authService.login(formData);
+      const response = await authService.login({ email });
       const { token, user } = response.data;
 
       localStorage.setItem('token', token);
@@ -73,21 +67,8 @@ const Login = ({ onLogin }) => {
                     name="email"
                     id="email"
                     placeholder="Enter your email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </FormGroup>
-
-                <FormGroup>
-                  <Label for="password">Password</Label>
-                  <Input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Enter your password"
-                    value={formData.password}
-                    onChange={handleChange}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                   />
                 </FormGroup>
@@ -107,12 +88,19 @@ const Login = ({ onLogin }) => {
                 <p>
                   Don't have an account? <a href="/register">Register here</a>
                 </p>
+                <p className="mt-3">
+                  <small className="text-muted">
+                    💡 Tip: Just enter any email to login!
+                  </small>
+                </p>
                 <p className="mt-2">
-                  <small>Demo credentials:</small>
+                  <small>Try these emails:</small>
                   <br />
-                  <small>Email: john@example.com</small>
+                  <small>john@example.com</small>
                   <br />
-                  <small>Password: password123</small>
+                  <small>jane@example.com</small>
+                  <br />
+                  <small>bob@example.com</small>
                 </p>
               </div>
             </CardBody>
